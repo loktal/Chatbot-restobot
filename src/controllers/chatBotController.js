@@ -122,14 +122,17 @@ let handlePostback = async (sender_psid, received_postback) => {
   
     // Get the payload for the postback
     let payload = received_postback.payload;
-  /*
+  
     // Set the response based on the postback payload
     switch (payload) {
         case "GET_STARTED":
             //get username
+            /*
             let username = await chatBotServices.getFacebookUsername(sender_psid);
 
             response = { "text": `Welcome ${username} to Restobot restaurant` };
+            */
+            response = { "text": "Nique ta race" };
 
             break;
         
@@ -145,7 +148,7 @@ let handlePostback = async (sender_psid, received_postback) => {
             console.log("Something wrong with switch case payload");
             
     }
-    */
+    /*
     if (payload === 'yes') {
         response = { "text": "Thanks!" }
     } else if (payload === 'no') {
@@ -157,7 +160,7 @@ let handlePostback = async (sender_psid, received_postback) => {
 
         response = { "text": `Welcome ${username} to Restobot restaurant` };
 
-    }
+    }*/
 
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
