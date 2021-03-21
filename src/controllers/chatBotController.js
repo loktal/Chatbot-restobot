@@ -124,15 +124,17 @@ let handlePostback = async (sender_psid, received_postback) => {
     let payload = received_postback.payload;
   
     // Set the response based on the postback payload
-    switch (payload){
-        case 'GET_STARTED':
+    switch (payload) {
+        case "GET_STARTED":
             //get username
             let username = await chatBotServices.getFacebookUsername(sender_psid);
+
             response = { "text": `Welcome ${username} to Restobot restaurant` };
+
             break;
         
         case "no":
-            response = {};
+            response = {"text": "ntm"};
             break;
         
         case "yes":
