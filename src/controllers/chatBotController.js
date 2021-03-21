@@ -1,5 +1,6 @@
 require("dotenv").config();
 import request from "request";
+import chatBotServices from "../services/chatBotService";
 
 const MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN; 
 
@@ -116,7 +117,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback) {
+let handlePostback = async (sender_psid, received_postback) => {
     let response;
   
     // Get the payload for the postback
@@ -125,7 +126,9 @@ function handlePostback(sender_psid, received_postback) {
     // Set the response based on the postback payload
     switch (payload){
         case 'GET_STARTED':
-            response = { "text": "Welcome ABC_Name to Restobot restaurant" };
+            //get username
+            let username = await chatBotServices.getFacebookUsername(sender_psid);
+            response = { "text": `Welcome ${username} to Restobot restaurant` };
             break;
         
         case "no":
@@ -148,10 +151,10 @@ function handlePostback(sender_psid, received_postback) {
     } else if (payload === 'GET_STARTED'){
         response = { "text": "Hi there" }
     }*/
-    
+
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
-}
+};
 
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
@@ -177,6 +180,8 @@ function callSendAPI(sender_psid, response) {
         }
     }); 
 }
+
+
 
 module.exports = {
 postWebhook: postWebhook,
