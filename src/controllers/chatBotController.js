@@ -124,9 +124,11 @@ function handlePostback(sender_psid, received_postback) {
   
     // Set the response based on the postback payload
     if (payload === 'yes') {
-      response = { "text": "Thanks!" }
+        response = { "text": "Thanks!" }
     } else if (payload === 'no') {
-      response = { "text": "Oops, try sending another image." }
+        response = { "text": "Oops, try sending another image." }
+    } else if (payload === 'GET_STARTED'){
+        response = { "text": "Hi there" }
     }
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
