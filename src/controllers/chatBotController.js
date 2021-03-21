@@ -123,13 +123,32 @@ function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
   
     // Set the response based on the postback payload
+    switch (payload){
+        case 'GET_STARTED':
+            response = { "text": "Welcome ABC_Name to Restobot restaurant" };
+            break;
+        
+        case "no":
+            response = {};
+            break;
+        
+        case "yes":
+            response = {};
+            break;
+        
+        default:
+            console.log("Something wrong with switch case payload");
+            
+    }
+    /*
     if (payload === 'yes') {
         response = { "text": "Thanks!" }
     } else if (payload === 'no') {
         response = { "text": "Oops, try sending another image." }
     } else if (payload === 'GET_STARTED'){
         response = { "text": "Hi there" }
-    }
+    }*/
+    
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
 }
