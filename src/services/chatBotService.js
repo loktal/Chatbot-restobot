@@ -15,9 +15,9 @@ let getFacebookUsername = (sender_psid) => {
             }, (err, res, body) => {
                 if (!err) {
                     //convert string to json object
-                    body = JSON.parse(body);
-                    let username = `${body.last_name} ${body.first_name}`;
-                    resolve(username);
+                    /*body = JSON.parse(body);
+                    let username = `${body.last_name} ${body.first_name}`;*/
+                    resolve(body);
                 } else {
                     reject("Unable to send message:" + err);
                 }
