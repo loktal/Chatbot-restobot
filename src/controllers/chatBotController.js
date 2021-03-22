@@ -127,13 +127,13 @@ let handlePostback = async (sender_psid, received_postback) => {
     switch (payload) {
         case "GET_STARTED":
             //get username
-            /*
+            
             let username = await chatBotServices.getFacebookUsername(sender_psid);
 
             response = { "text": `Welcome ${username} to Restobot restaurant` };
-            */
+            /*
             response = { "text": "Nique ta race" };
-
+            */
             break;
         
         case "no":
