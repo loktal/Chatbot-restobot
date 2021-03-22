@@ -1,6 +1,6 @@
 require("dotenv").config();
 import request from "request";
-import chatBotServices from "../services/chatBotService";
+import chatBotService from "../services/chatBotService";
 
 const MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN; 
 
@@ -128,8 +128,7 @@ let handlePostback = async (sender_psid, received_postback) => {
         case "GET_STARTED":
             //get username
             
-            let username = await chatBotServices.getFacebookUsername(sender_psid);
-
+            let username = await chatBotService.getFacebookUsername(sender_psid);
             response = { "text": `Welcome ${username} to Restobot restaurant` };
             /*
             response = { "text": "Nique ta race" };
