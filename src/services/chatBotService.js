@@ -97,7 +97,7 @@ let sendMainMenu = (sender_psid) => {
                                       Saturday - Sunday    12:00 AM - 2:00 AM
                         `,
                         "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-WmD7YAGavUrd71E5KRFKV3cdWrtX8OQ5mg&usqp=CAU",
-                        "buttons": [
+                        "buttons": [ 
                             {
                                 "type": "postback",
                                 "title": "Reserve a table",
@@ -119,11 +119,9 @@ let sendMainMenu = (sender_psid) => {
                 ]
             }
         }};
-    
         await sendMessage(sender_psid, response);
 
-
-    });
+    }); 
     
 };
 
