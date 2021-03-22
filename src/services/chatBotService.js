@@ -104,17 +104,6 @@ let sendMainMenu = (sender_psid) => {
                                 "payload": "RESERVE_A_TABLE",
                             }
                         ],
-                    },
-                    {
-                        "title": "Here is the Restobot !",
-                        "image_url": "https://www.lecoindesrestaurants.com/media/cache/advice_cover/sites/restaurant/img/uploads/advices/prix-de-vente-des-plats-d-un-restaurant.jpg",
-                        "buttons": [
-                            {
-                                "type": "postback",
-                                "title": "Show Main Menu",
-                                "payload": "MAIN_MENU",
-                            }
-                        ],
                     }
                 ]
             }
