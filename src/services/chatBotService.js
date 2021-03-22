@@ -8,7 +8,7 @@ let getFacebookUsername = (sender_psid) => {
     return new Promise((resolve, reject) => {
         try {
             // Send the HTTP request to the Messenger Platform
-            let url = `https://graph.facebook.com/${sender_psid}?fields=first_name,last_name,profile_pic&access_token=${PAGE_ACCESS_TOKEN}`;
+            let url = `https://graph.facebook.com/${sender_psid}?fields=first_name,last_name&access_token=${PAGE_ACCESS_TOKEN}`;
             request({
                 "uri": url,
                 "method": "GET",
