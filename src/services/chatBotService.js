@@ -42,8 +42,8 @@ let sendResponseWelcomeNewCustomer = (username,sender_psid) => {
                     "buttons": [
                         {
                         "type": "postback",
-                        "title": "Main menu",
-                        "payload": "MENU",
+                        "title": "Show Main Menu",
+                        "payload": "MAIN_MENU",
                         }
                     ],
                     }]
@@ -58,6 +58,73 @@ let sendResponseWelcomeNewCustomer = (username,sender_psid) => {
         await sendMessage(sender_psid, response_second);
     
     });
+};
+
+let sendMainMenu = (sender_psid) => {
+
+    return new Promise( async (resolve, reject) => {
+        let response = {
+            "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Our menus",
+                        "subtitle": "We are pleased to offer you a wide-range of menu for lunch or dinner :)",
+                        "image_url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/21/ef/a4/farandole-de-plats-au.jpg",
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "Lunch menu",
+                                "payload": "LUNCH_MENU",
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Dinner menu",
+                                "payload": "DINNER_MENU",
+                            },
+                            {
+                                "type": "postback",
+                                "title": "Pub menu",
+                                "payload": "PUB_MENU",
+                            }
+                        ],
+                    },
+                    {
+                        "title": "Hours !",
+                        "subtitle": ` Monday - Friday    11:00 AM - 12:00 PM
+                                      Saturday - Sunday    12:00 AM - 2:00 AM
+                        `,
+                        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-WmD7YAGavUrd71E5KRFKV3cdWrtX8OQ5mg&usqp=CAU",
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "Reserve a table",
+                                "payload": "RESERVE_A_TABLE",
+                            }
+                        ],
+                    },
+                    {
+                        "title": "Here is the Restobot !",
+                        "image_url": "https://www.lecoindesrestaurants.com/media/cache/advice_cover/sites/restaurant/img/uploads/advices/prix-de-vente-des-plats-d-un-restaurant.jpg",
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "Show Main Menu",
+                                "payload": "MAIN_MENU",
+                            }
+                        ],
+                    }
+                ]
+            }
+        }};
+    
+        await sendMessage(sender_psid, response);
+
+
+    });
+    
 };
 
 
@@ -83,6 +150,7 @@ let sendMessage = (sender_id,response)  => {
         console.error("Unable to send message:" + err);
         }
     });
+
 };
 
 
@@ -90,4 +158,5 @@ let sendMessage = (sender_id,response)  => {
 module.exports = {
     getFacebookUsername: getFacebookUsername,
     sendResponseWelcomeNewCustomer: sendResponseWelcomeNewCustomer,
+    sendMainMenu: sendMainMenu,
 };
