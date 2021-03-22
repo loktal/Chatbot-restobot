@@ -16,7 +16,7 @@ let getFacebookUsername = (sender_psid) => {
                 if (!err) {
                     //convert string to json object
                     body = JSON.parse(body);
-                    let username = `${body.last_name} ${body.first_name}`;
+                    let username = `${body.first_name} ${body.last_name}`;
                     resolve(username);
                 } else {
                     reject("Unable to send message:" + err);
@@ -28,8 +28,66 @@ let getFacebookUsername = (sender_psid) => {
     });
 };
 
+let sendResponseWelcomeNewCustomer = (username,sender_psid) => {
+    return new Promise( async (resolve, reject) => {
+        let response_first = { "text": `Welcome ${username} to Restobot restaurant` };
+        let response_second = {
+                "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": [{
+                    "title": "Here is the Restobot !",
+                    "image_url": "https://www.lecoindesrestaurants.com/media/cache/advice_cover/sites/restaurant/img/uploads/advices/prix-de-vente-des-plats-d-un-restaurant.jpg",
+                    "buttons": [
+                        {
+                        "type": "postback",
+                        "title": "Main menu",
+                        "payload": "MENU",
+                        }
+                    ],
+                    }]
+                }
+            }
+        };
+
+        // welcome message 
+        await sendMessage(sender_psid, response_first);
+
+        // presentation du resto
+        await sendMessage(sender_psid, response_second);
+    
+    });
+};
+
+
+let sendMessage = (sender_id,response)  => {
+    // Construct the message body
+    let request_body = {
+        "recipient": {
+        "id": sender_psid
+        },
+        "message": response
+    };
+    
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": "https://graph.facebook.com/v6.0/me/messages",
+        "qs": { "access_token": PAGE_ACCESS_TOKEN},
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        if (!err) {
+        console.log('message sent!')
+        } else {
+        console.error("Unable to send message:" + err);
+        }
+    });
+};
+
 
 
 module.exports = {
     getFacebookUsername: getFacebookUsername,
+    sendResponseWelcomeNewCustomer: sendResponseWelcomeNewCustomer,
 };
