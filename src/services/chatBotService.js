@@ -65,7 +65,7 @@ let sendMessage = (sender_id,response)  => {
     // Construct the message body
     let request_body = {
         "recipient": {
-        "id": sender_psid
+        "id": sender_id
         },
         "message": response
     };
