@@ -274,14 +274,11 @@ let reservation = (sender_psid) => {
                 "template_type": "generic",
                 "elements": [
                     {
-                        "title": "Made your choice ?",
-                        "buttons": [ 
-                            {
-                                "type": "postback",
-                                "title": "Reserve a table",
-                                "payload": "RESERVE_A_TABLE",
-                            }
-                        ],
+                        
+                        "type": "postback",
+                        "title": "Reserve a table",
+                        "payload": "RESERVE_A_TABLE"
+                        
                     }
                     
                 ]
