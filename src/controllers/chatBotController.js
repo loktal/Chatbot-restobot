@@ -138,10 +138,20 @@ let handlePostback = async (sender_psid, received_postback) => {
 
             break;
         
-        case "yes":
-            response = {};
+        case "LUNCH_MENU":
+            await chatBotService.sendLunchMenu(sender_psid);
+
             break;
         
+        case "PUB_MENU":
+            await chatBotService.sendPubMenu(sender_psid);
+
+            break;
+        
+        case "RESERVE_A_TABLE":
+            response = {};
+            break;
+
         default:
             console.log("Something wrong with switch case payload");
             

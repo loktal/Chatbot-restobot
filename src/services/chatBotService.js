@@ -76,13 +76,8 @@ let sendMainMenu = (sender_psid) => {
                         "buttons": [
                             {
                                 "type": "postback",
-                                "title": "Lunch menu",
+                                "title": "Menu",
                                 "payload": "LUNCH_MENU",
-                            },
-                            {
-                                "type": "postback",
-                                "title": "Dinner menu",
-                                "payload": "DINNER_MENU",
                             },
                             {
                                 "type": "postback",
@@ -106,6 +101,76 @@ let sendMainMenu = (sender_psid) => {
                 ]
             }
         }};
+        await sendMessage(sender_psid, response);
+
+    }); 
+    
+};
+
+
+let sendLunchMenu = (sender_psid) => {
+
+    return new Promise( async (resolve, reject) => {
+        
+        let response = {
+            "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Starters",
+                        "subtitle": "Here is our starters.",
+                        "image_url": "https://www.atelierdeschefs.com/media/recette-e15183-salade-grecque.jpg",
+                        "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "Show the starters",
+                                "payload": "SHOW_STARTERS",
+                            }
+                        ],
+                    },
+                    {
+                        "title": "Main Courses",
+                        "subtitle": 'Our dishes are the best!',
+                        "image_url": "https://blog.finarome.com/wp-content/uploads/2019/06/le-plat-du-jour-au-restaurant.jpg",
+                        "buttons": [ 
+                            {
+                                "type": "postback",
+                                "title": "Show the main courses",
+                                "payload": "SHOW_MAIN_COURSE",
+                            }
+                        ],
+                    },
+                    {
+                        "title": "Desserts",
+                        "subtitle": 'You will be amazed by our deserts (try the enigma).',
+                        "image_url": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dessert-main-image-molten-cake-0fbd4f2.jpg?quality=90&resize=768,574",
+                        "buttons": [ 
+                            {
+                                "type": "postback",
+                                "title": "Show the desserts",
+                                "payload": "SHOW_desserts",
+                            }
+                        ],
+                    }
+                ]
+            }
+        }};
+
+
+        await sendMessage(sender_psid, response);
+
+    }); 
+    
+};
+
+
+
+let sendPubMenu = (sender_psid) => {
+
+    return new Promise( async (resolve, reject) => {
+        
         await sendMessage(sender_psid, response);
 
     }); 
@@ -144,4 +209,7 @@ module.exports = {
     getFacebookUsername: getFacebookUsername,
     sendResponseWelcomeNewCustomer: sendResponseWelcomeNewCustomer,
     sendMainMenu: sendMainMenu,
+    sendLunchMenu: sendLunchMenu,
+    sendPubMenu: sendPubMenu,
+
 };
