@@ -268,22 +268,23 @@ let reservation = (sender_psid) => {
     return new Promise( async (resolve, reject) => {
         
         let response = {
-            "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [
-                    {
-                        
+            "message":{
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"button",
+                    "text":"What do you want to do next?",
+                    "buttons":[
+                      {
                         "type": "postback",
                         "title": "Reserve a table",
                         "payload": "RESERVE_A_TABLE"
-                        
-                    }
-                    
-                ]
-            }
-        }};
+                      },
+                    ]
+                  }
+                }
+              }
+        };
 
         await sendMessage(sender_psid, response);
 
