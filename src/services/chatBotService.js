@@ -53,7 +53,7 @@ let sendResponseWelcomeNewCustomer = (username,sender_psid) => {
 
         // welcome message 
         await sendMessage(sender_psid, response_first);
-
+        sleep(20);
         // presentation du resto
         await sendMessage(sender_psid, response_second);
     
@@ -237,7 +237,7 @@ let sendPubMenu = (sender_psid) => {
         };
 
         await sendMessage(sender_psid, response);
-
+        sleep(20);
         await sendMessage(sender_psid, response2);
 
     }); 
