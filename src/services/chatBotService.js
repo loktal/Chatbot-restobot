@@ -218,6 +218,51 @@ let sendPubMenu = (sender_psid) => {
 };
 
 
+let sendStarter = (sender_psid) => {
+
+    return new Promise( async (resolve, reject) => {
+        
+        let response = {
+            "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Salade Niçoise",
+                        "subtitle": "A tasty salade with tuna and eggs, perfect to have the impression to be at the sea.",
+                        "image_url": "https://assets.epicurious.com/photos/579fa0dbc9298e5449591827/2:1/w_1260%2Ch_630/salade-nicoise.jpg",
+                    },
+                    {
+                        "title": "snails",
+                        "subtitle": "It is French haute cuisine because we are fancy af.",
+                        "image_url": "https://www.thefishsociety.co.uk/media/image/9c/d6/c3/SNails-for-web-2_600x600.jpg",
+                        
+                    },
+                    {
+                        "title": "Salade vigneronne",
+                        "subtitle": "It is the best salade ever, it come from alsace.",
+                        "image_url": "https://p1.storage.canalblog.com/24/20/792082/78438576_o.jpg",
+                        
+                    },
+                    {
+                        "title": "avocado toasts",
+                        "subtitle": "Perfect if you are a little parisian who want to spend 5€ for nothing.",
+                        "image_url": "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2Fimage%2F2018%2F07%2Fmain%2F1807w-avocado-toast-recipe.jpg%3Fitok%3DiTXSfI1Z",
+                        
+                    }
+                    
+                ]
+            }
+        }};
+
+        await sendMessage(sender_psid, response);
+
+    }); 
+    
+};
+
+
 let sendMessage = (sender_id,response)  => {
     // Construct the message body
     let request_body = {
@@ -251,5 +296,6 @@ module.exports = {
     sendMainMenu: sendMainMenu,
     sendLunchMenu: sendLunchMenu,
     sendPubMenu: sendPubMenu,
+    sendStarter: sendStarter
 
 };

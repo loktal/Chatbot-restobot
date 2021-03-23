@@ -148,6 +148,12 @@ let handlePostback = async (sender_psid, received_postback) => {
 
             break;
         
+        case "SHOW_STARTERS":
+            await chatBotService.sendStarter(sender_psid);
+
+            break;
+            
+        
         case "RESERVE_A_TABLE":
             response = {};
             break;
