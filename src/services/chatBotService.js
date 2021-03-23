@@ -211,7 +211,29 @@ let sendPubMenu = (sender_psid) => {
             }
         }};
 
+        let response2 = {
+            
+            "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"button",
+                  "text":"What do you want to do next?",
+                  "buttons":[
+                    {
+                      "type":"web_url",
+                      "url":"https://www.messenger.com",
+                      "title":"Visit Messenger"
+                    }
+                    
+                  ]
+                }
+              }
+        
+        };
+
         await sendMessage(sender_psid, response);
+
+        await sendMessage(sender_psid, response2);
 
     }); 
     
@@ -263,35 +285,7 @@ let sendStarter = (sender_psid) => {
 };
 
 
-let reservation = (sender_psid) => {
 
-    return new Promise( async (resolve, reject) => {
-        
-        let response = {
-            
-            "attachment":{
-                "type":"template",
-                "payload":{
-                  "template_type":"button",
-                  "text":"What do you want to do next?",
-                  "buttons":[
-                    {
-                      "type":"web_url",
-                      "url":"https://www.messenger.com",
-                      "title":"Visit Messenger"
-                    }
-                    
-                  ]
-                }
-              }
-        
-        };
-
-        await sendMessage(sender_psid, response);
-
-    }); 
-    
-};
 
 
 
@@ -330,6 +324,6 @@ module.exports = {
     sendLunchMenu: sendLunchMenu,
     sendPubMenu: sendPubMenu,
     sendStarter: sendStarter,
-    reservation: reservation,
+    //reservation: reservation,
 
 };
