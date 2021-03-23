@@ -149,8 +149,8 @@ let sendLunchMenu = (sender_psid) => {
                         "buttons": [ 
                             {
                                 "type": "postback",
-                                "title": "Show the desserts",
-                                "payload": "SHOW_desserts",
+                                "title": "Reserve a table",
+                                "payload": "RESERVE_A_TABLE",
                             }
                         ],
                     }
@@ -263,6 +263,39 @@ let sendStarter = (sender_psid) => {
 };
 
 
+let reservation = (sender_psid) => {
+
+    return new Promise( async (resolve, reject) => {
+        
+        let response = {
+            "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "Show the starters",
+                            "payload": "SHOW_STARTERS",
+                        }
+                    ]
+                }
+                    
+                ]
+            }
+        }};
+
+        await sendMessage(sender_psid, response);
+
+    }); 
+    
+};
+
+
+
+
 let sendMessage = (sender_id,response)  => {
     // Construct the message body
     let request_body = {
@@ -296,6 +329,7 @@ module.exports = {
     sendMainMenu: sendMainMenu,
     sendLunchMenu: sendLunchMenu,
     sendPubMenu: sendPubMenu,
-    sendStarter: sendStarter
+    sendStarter: sendStarter,
+    reservation: reservation,
 
 };
