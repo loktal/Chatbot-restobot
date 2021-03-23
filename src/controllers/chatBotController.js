@@ -145,23 +145,29 @@ let handlePostback = async (sender_psid, received_postback) => {
         
         case "PUB_MENU":
             await chatBotService.sendPubMenu(sender_psid);
-            // await chatBotService.reservation(sender_psid);
+            
 
             break;
         
         case "SHOW_STARTERS":
             await chatBotService.sendStarter(sender_psid);
-            // await chatBotService.reservation(sender_psid);
+            
 
             break;
             
         case "SHOW_MAIN_COURSE":
             await chatBotService.sendMainCourse(sender_psid);
-            // await chatBotService.reservation(sender_psid);
+            
 
             break;        
 
+        
+        case "SHOW_DESSERT":
+            await chatBotService.sendDessert(sender_psid);
             
+
+            break; 
+        
         case "RESERVE_A_TABLE":
             response = {};
             break;

@@ -149,8 +149,8 @@ let sendLunchMenu = (sender_psid) => {
                         "buttons": [ 
                             {
                                 "type": "postback",
-                                "title": "Reserve a table",
-                                "payload": "RESERVE_A_TABLE",
+                                "title": "Show the desserts",
+                                "payload": "SHOW_DESSERT",
                             }
                         ],
                     }
@@ -392,6 +392,78 @@ let sendMainCourse = (sender_psid) => {
 };
 
 
+let sendDessert = (sender_psid) => {
+
+    return new Promise( async (resolve, reject) => {
+        
+        let response = {
+            "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Strawberry cake",
+                        "subtitle": "With roasted potatoes and green beans.",
+                        "image_url": "https://i8b2m3d9.stackpathcdn.com/wp-content/uploads/2020/08/Strawberry_Shortcake_5140sq-500x500.jpg",
+                    },
+                    {
+                        "title": "Chocolate fudge",
+                        "subtitle": "With cucumber, carrots and peanuts",
+                        "image_url": "https://i-reg.unimedias.fr/sites/art-de-vivre/files/styles/recipe/public/Import/coulant-fondant-chocolat_ss.jpg?auto=compress%2Cformat&crop=faces%2Cedges&cs=srgb&fit=crop&h=500&w=393",
+                        
+                    },
+                    {
+                        "title": "Banana split",
+                        "subtitle": "Cambodian beef salad served with a wok of vegetables, gomasio and pandan rice.",
+                        "image_url": "https://www.thekitchenmagpie.com/wp-content/uploads/images/2020/08/oldfashionedbananasplits.jpg",
+                        
+                    },
+                    {
+                        "title": "Enigma",
+                        "subtitle": "No one know what it is. Some say's it is 'La réponse D' ",
+                        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/200px-Question_mark_%28black%29.svg.png",
+                        
+                    }
+                    
+                ]
+            }
+        }};
+
+
+        let response2 = {
+            
+            "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"button",
+                  "text":"What do you want to do next?",
+                  "buttons":[
+                    {
+                        "type": "postback",
+                        "title": "Reserve a table",
+                        "payload": "RESERVE_A_TABLE"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Main Menu",
+                        "payload": "MAIN_MENU"
+                    }
+                    
+                  ]
+                }
+              }
+        
+        };
+
+        await sendMessage(sender_psid, response);
+
+
+        await sendMessage(sender_psid, response2);
+
+    }); 
+    
+};
 
 
 
@@ -431,5 +503,6 @@ module.exports = {
     sendPubMenu: sendPubMenu,
     sendStarter: sendStarter,
     sendMainCourse: sendMainCourse,
+    sendDessert: sendDessert
 
 };
