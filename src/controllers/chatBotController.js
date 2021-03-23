@@ -155,7 +155,13 @@ let handlePostback = async (sender_psid, received_postback) => {
 
             break;
             
-        
+        case "SHOW_MAIN_COURSE":
+            await chatBotService.sendMainCourse(sender_psid);
+            // await chatBotService.reservation(sender_psid);
+
+            break;        
+
+            
         case "RESERVE_A_TABLE":
             response = {};
             break;
@@ -164,19 +170,6 @@ let handlePostback = async (sender_psid, received_postback) => {
             console.log("Something wrong with switch case payload");
             
     }
-    /*
-    if (payload === 'yes') {
-        response = { "text": "Thanks!" }
-    } else if (payload === 'no') {
-        response = { "text": "Oops, try sending another image." }
-    } else if (payload === 'GET_STARTED'){
-
-        //get username
-        let username = await chatBotServices.getFacebookUsername(sender_psid);
-
-        response = { "text": `Welcome ${username} to Restobot restaurant` };
-
-    }*/
 
     // Send the message to acknowledge the postback
     //callSendAPI(sender_psid, response);

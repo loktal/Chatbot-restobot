@@ -53,7 +53,7 @@ let sendResponseWelcomeNewCustomer = (username,sender_psid) => {
 
         // welcome message 
         await sendMessage(sender_psid, response_first);
-        sleep(20);
+        
         // presentation du resto
         await sendMessage(sender_psid, response_second);
     
@@ -237,7 +237,7 @@ let sendPubMenu = (sender_psid) => {
         };
 
         await sendMessage(sender_psid, response);
-        sleep(20);
+        
         await sendMessage(sender_psid, response2);
 
     }); 
@@ -283,12 +283,113 @@ let sendStarter = (sender_psid) => {
             }
         }};
 
+
+        let response2 = {
+            
+            "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"button",
+                  "text":"What do you want to do next?",
+                  "buttons":[
+                    {
+                        "type": "postback",
+                        "title": "Reserve a table",
+                        "payload": "RESERVE_A_TABLE"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Main Menu",
+                        "payload": "MAIN_MENU"
+                    }
+                    
+                  ]
+                }
+              }
+        
+        };
+
         await sendMessage(sender_psid, response);
+
+
+        await sendMessage(sender_psid, response2);
 
     }); 
     
 };
 
+let sendMainCourse = (sender_psid) => {
+
+    return new Promise( async (resolve, reject) => {
+        
+        let response = {
+            "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Pork tenderloin with strawberry sauce.",
+                        "subtitle": "With roasted potatoes and green beans.",
+                        "image_url": "https://spicysouthernkitchen.com/wp-content/uploads/pork-with-strawberries-17.jpg",
+                    },
+                    {
+                        "title": "Bo Bun with stir-fried beef",
+                        "subtitle": "With cucumber, carrots and peanuts",
+                        "image_url": "https://iamafoodblog.b-cdn.net/wp-content/uploads/2020/06/bun-bo-xa-ot-recipe-3990.jpg",
+                        
+                    },
+                    {
+                        "title": "Lap khmer",
+                        "subtitle": "Cambodian beef salad served with a wok of vegetables, gomasio and pandan rice.",
+                        "image_url": "https://pbs.twimg.com/media/CVXQ-JdWwAAvr3d.png",
+                        
+                    },
+                    {
+                        "title": "Chicken tenders, mushrooms and cream.",
+                        "subtitle": "with fusilli and broccoli florets",
+                        "image_url": "https://food-images.files.bbci.co.uk/food/recipes/chicken_in_a_creamy_84614_16x9.jpg",
+                        
+                    }
+                    
+                ]
+            }
+        }};
+
+
+        let response2 = {
+            
+            "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"button",
+                  "text":"What do you want to do next?",
+                  "buttons":[
+                    {
+                        "type": "postback",
+                        "title": "Reserve a table",
+                        "payload": "RESERVE_A_TABLE"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Main Menu",
+                        "payload": "MAIN_MENU"
+                    }
+                    
+                  ]
+                }
+              }
+        
+        };
+
+        await sendMessage(sender_psid, response);
+
+
+        await sendMessage(sender_psid, response2);
+
+    }); 
+    
+};
 
 
 
@@ -329,6 +430,6 @@ module.exports = {
     sendLunchMenu: sendLunchMenu,
     sendPubMenu: sendPubMenu,
     sendStarter: sendStarter,
-    //reservation: reservation,
+    sendMainCourse: sendMainCourse,
 
 };
