@@ -171,6 +171,46 @@ let sendPubMenu = (sender_psid) => {
 
     return new Promise( async (resolve, reject) => {
         
+        let response = {
+            "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+                    {
+                        "title": "Merlot",
+                        "subtitle": "Fruity, spicy. Very soft, less tannic than Cabernet sauvignon.",
+                        "image_url": "https://digitalcontent.api.tesco.com/v2/media/ghs/97f0fcc4-fbb9-405b-8cc7-3831dc79995f/snapshotimagehandler_1868991701.jpeg?h=540&w=540",
+                    },
+                    {
+                        "title": "Pinot noir",
+                        "subtitle": "Delicate and fresh, very soft tannins with fruity aromas",
+                        "image_url": "https://cdn.aldi-digital.co.uk//French-Pinot-Noir--A.jpg?o=Kv8gtxNg5W3N6lZ2T8Pv7QpmfWEj&V=FPsu",
+                        
+                    },
+                    {
+                        "title": "Beer",
+                        "subtitle": "German helles' beer is maltier than a traditional pilsner and features a bright gold color.",
+                        "image_url": "https://imgix.lifehacker.com.au/content/uploads/sites/4/2020/01/beer.jpg?ar=16%3A9&auto=format&fit=crop&q=80&w=1280&nr=20",
+                        
+                    },
+                    {
+                        "title": "Vodka shots",
+                        "subtitle": "Perfect for an hangover.",
+                        "image_url": "https://img1.thelist.com/img/gallery/when-you-drink-vodka-every-night-this-is-what-happens-to-your-body/intro-1580240935.jpg",
+                        
+                    },
+                    {
+                        "title": "Jäger Bombe",
+                        "subtitle": "My favorite to be knocked down.",
+                        "image_url": "https://cdn.rex.domains/tipsy/uploads/2020/01/jager-bomb-ice-sphere.jpg",
+                        
+                    }
+                    
+                ]
+            }
+        }};
+
         await sendMessage(sender_psid, response);
 
     }); 
