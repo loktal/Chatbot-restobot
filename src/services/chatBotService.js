@@ -272,17 +272,18 @@ let reservation = (sender_psid) => {
             "attachment":{
                 "type":"template",
                 "payload":{
-                "template_type":"button",
-                "text":"What do you want to do next?",
-                "buttons":[
+                  "template_type":"button",
+                  "text":"What do you want to do next?",
+                  "buttons":[
                     {
-                    "type": "postback",
-                    "title": "Reserve a table",
-                    "payload": "RESERVE_A_TABLE"
-                    },
-                ]
+                      "type":"web_url",
+                      "url":"https://www.messenger.com",
+                      "title":"Visit Messenger"
+                    }
+                    
+                  ]
                 }
-            }
+              }
         
         };
 
