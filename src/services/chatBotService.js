@@ -220,9 +220,14 @@ let sendPubMenu = (sender_psid) => {
                   "text":"What do you want to do next?",
                   "buttons":[
                     {
-                      "type":"web_url",
-                      "url":"https://www.messenger.com",
-                      "title":"Visit Messenger"
+                        "type": "postback",
+                        "title": "Reserve a table",
+                        "payload": "RESERVE_A_TABLE"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Main Menu",
+                        "payload": "MAIN_MENU"
                     }
                     
                   ]
