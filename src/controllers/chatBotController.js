@@ -165,7 +165,8 @@ function handleMessage(sender_psid, received_message) {
 function handleMessageWithEntities(message) {
   // check greeting is here and is confident
   
-
+  if (message.nlp.entities)
+  {
   if (message.nlp.entities['wit$datetime:datetime']){
     console.log("on a une datetime");
     if (message.nlp.entities['wit$datetime:datetime'][0].confidence > 0.8){
@@ -185,6 +186,7 @@ function handleMessageWithEntities(message) {
   } else {
     return "on a rien trouvé";
   }
+}
 
   /*
   const greeting = firstTrait(message.nlp, 'wit$datetime:datetime');
