@@ -75,7 +75,7 @@ let getWebhook = (req,res) =>{
 function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
-  console.log(received_message.nlp.entities);
+  console.log(received_message.nlp.entities.role);
   console.log("-----------");
   console.log("-----------");
   console.log(received_message.nlp.traits);
