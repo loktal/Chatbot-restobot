@@ -95,10 +95,12 @@ function handleMessage(sender_psid, received_message) {
 
   if(entitie) {
     if (entitie.role  === 'datetime'){
-      console.log(" c'est bon on vas pouvoir se mettre bien en datetime");
+      //console.log(" c'est bon on vas pouvoir se mettre bien en datetime");
+
+      chatBotService.SendMessageAskingQuantity(sender_psid);
   
     }else if(entitie.role  === 'phone_number'){
-      console.log(" c'est bon on vas pouvoir se mettre bien en téléphone");
+      //console.log(" c'est bon on vas pouvoir se mettre bien en téléphone");
     }
 
   }
@@ -159,9 +161,6 @@ function handleMessage(sender_psid, received_message) {
     callSendAPI(sender_psid, response);*/
 }
 
-function firstTrait(nlp, name) {
-  return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
-}
 
 function handleMessageWithEntities(message) {
   // check greeting is here and is confident
@@ -196,6 +195,12 @@ function handleMessageWithEntities(message) {
     // default logic
   }*/
 }
+
+/*
+function firstTrait(nlp, name) {
+  return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
+}*/
+
 
 /*
 let handleMessageWithEntities = (message) => {

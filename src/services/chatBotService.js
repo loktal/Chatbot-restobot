@@ -510,6 +510,51 @@ let sendMessage = (sender_id,response)  => {
 
 };
 
+let SendMessageAskingQuantity = (sender_psid) => {
+    let request_body = {
+        "recipient":{
+            "id":sender_psid
+          },
+          "messaging_type": "RESPONSE",
+          "message":{
+            "text": "what is your party size ?",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"1-2",
+                "payload":"SMALL",
+                
+              },{
+                "content_type":"text",
+                "title":"2-5",
+                "payload":"MEDIUM",
+                
+              },
+              {
+                "content_type":"text",
+                "title":">5",
+                "payload":"LARGE",
+                
+              }
+            ]
+          }
+    };
+    
+    // Send the HTTP request to the Messenger Platform
+    request({
+        "uri": "https://graph.facebook.com/v6.0/me/messages",
+        "qs": { "access_token": PAGE_ACCESS_TOKEN},
+        "method": "POST",
+        "json": request_body
+    }, (err, res, body) => {
+        if (!err) {
+        console.log('message sent!')
+        } else {
+        console.error("Unable to send message:" + err);
+        }
+    });
+};
+
 
 
 module.exports = {
@@ -522,5 +567,6 @@ module.exports = {
     sendMainCourse: sendMainCourse,
     sendDessert: sendDessert,
     handleReserveTable: handleReserveTable,
+    SendMessageAskingQuantity: SendMessageAskingQuantity,
 
 };
