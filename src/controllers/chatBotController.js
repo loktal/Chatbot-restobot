@@ -75,7 +75,7 @@ let getWebhook = (req,res) =>{
 function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
-  console.log(received_message.nlp.entities.value);
+  console.log(received_message.nlp.entities);
   console.log("-----------");
   console.log("-----------");
   console.log(received_message.nlp.traits);
@@ -145,6 +145,12 @@ function firstTrait(nlp, name) {
 
 function handleMessageWithEntities(message) {
   // check greeting is here and is confident
+
+  for ( x in message.nlp.entities){
+    console.log(x);
+  }
+
+  /*
   const greeting = firstTrait(message.nlp, 'wit$datetime');
   if (greeting && greeting.confidence > 0.8) {
     console.log('greeting.value');
@@ -152,6 +158,7 @@ function handleMessageWithEntities(message) {
   } else { 
     // default logic
   }
+  */
 }
 
 /*
