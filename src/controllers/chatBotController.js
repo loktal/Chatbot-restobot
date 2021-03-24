@@ -75,7 +75,7 @@ let getWebhook = (req,res) =>{
 function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
-  console.log(received_message.nlp.entities['wit$datetime:$datetime']);
+  console.log(received_message.nlp.entities.value);
   console.log("-----------");
   console.log("-----------");
   console.log(received_message.nlp.traits);
@@ -147,7 +147,8 @@ function handleMessageWithEntities(message) {
   // check greeting is here and is confident
   const greeting = firstTrait(message.nlp, 'wit$datetime:$datetime');
   if (greeting && greeting.confidence > 0.8) {
-    console.log('it is a date');
+    console.log('greeting.value');
+    
   } else { 
     // default logic
   }
