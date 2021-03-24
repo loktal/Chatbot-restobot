@@ -145,7 +145,7 @@ function firstTrait(nlp, name) {
 
 function handleMessageWithEntities(message) {
   // check greeting is here and is confident
-
+  var x;
   for ( x in message.nlp.entities){
     console.log(x);
   }
