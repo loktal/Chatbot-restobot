@@ -145,7 +145,7 @@ function firstTrait(nlp, name) {
 
 function handleMessageWithEntities(message) {
   // check greeting is here and is confident
-  const greeting = firstTrait(message.nlp, 'wit$datetime:$datetime');
+  const greeting = firstTrait(message.nlp, 'wit$datetime');
   if (greeting && greeting.confidence > 0.8) {
     console.log('greeting.value');
     
