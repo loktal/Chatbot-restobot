@@ -78,10 +78,13 @@ function handleMessage(sender_psid, received_message) {
   console.log(received_message.nlp);
   console.log("-----------");
   console.log("-----------");
+  console.log(received_message.nlp.entities);
+  console.log("-----------");
+  console.log("-----------");
   console.log(received_message.nlp.entities['wit$datetime:datetime']);
   console.log("-----------");
   console.log("-----------");
-  //console.log(received_message.nlp.entities['wit$datetime:datetime'][0].confidence);
+  console.log(received_message.nlp.entities['wit$datetime:datetime'][0].confidence);
   console.log("-----------");
   console.log("-----------");
   console.log(received_message.nlp.traits);
