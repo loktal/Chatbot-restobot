@@ -210,7 +210,7 @@ let sendPubMenu = (sender_psid) => {
                 ]
             }
         }};
-
+        await sendMessage(sender_psid, response);
         let response2 = {
             
             "attachment":{
@@ -236,7 +236,6 @@ let sendPubMenu = (sender_psid) => {
         
         };
 
-        await sendMessage(sender_psid, response);
         
         await sendMessage(sender_psid, response2);
 
@@ -284,6 +283,8 @@ let sendStarter = (sender_psid) => {
         }};
 
 
+        await sendMessage(sender_psid, response);
+
         let response2 = {
             
             "attachment":{
@@ -309,7 +310,7 @@ let sendStarter = (sender_psid) => {
         
         };
 
-        await sendMessage(sender_psid, response);
+        
 
 
         await sendMessage(sender_psid, response2);
@@ -356,6 +357,7 @@ let sendMainCourse = (sender_psid) => {
             }
         }};
 
+        await sendMessage(sender_psid, response);
 
         let response2 = {
             
@@ -382,8 +384,7 @@ let sendMainCourse = (sender_psid) => {
         
         };
 
-        await sendMessage(sender_psid, response);
-
+        
 
         await sendMessage(sender_psid, response2);
 
@@ -430,6 +431,8 @@ let sendDessert = (sender_psid) => {
             }
         }};
 
+        await sendMessage(sender_psid, response);
+
 
         let response2 = {
             
@@ -456,13 +459,27 @@ let sendDessert = (sender_psid) => {
         
         };
 
-        await sendMessage(sender_psid, response);
+        
 
 
         await sendMessage(sender_psid, response2);
 
     }); 
     
+};
+
+
+
+let handleReserveTable = (sender_psid) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+            let username = await getFacebookUsername(sender_psid);
+            let response = {text: `Great! Thank you for reserving a table ${username}. When do you want to bring ecstasy to your taste buds ?`};
+            await sendMessage(sender_psid, response);
+        }catch(e){
+            reject(e);
+        }
+    });
 };
 
 
@@ -503,6 +520,7 @@ module.exports = {
     sendPubMenu: sendPubMenu,
     sendStarter: sendStarter,
     sendMainCourse: sendMainCourse,
-    sendDessert: sendDessert
+    sendDessert: sendDessert,
+    handleReserveTable: handleReserveTable,
 
 };

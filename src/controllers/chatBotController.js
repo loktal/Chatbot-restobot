@@ -169,7 +169,8 @@ let handlePostback = async (sender_psid, received_postback) => {
             break; 
         
         case "RESERVE_A_TABLE":
-            response = {};
+            await chatBotService.handleReserveTable(sender_psid);
+
             break;
 
         default:
