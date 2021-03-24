@@ -75,7 +75,7 @@ let getWebhook = (req,res) =>{
 function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
-  console.log(received_message.nlp.entities[0]);
+  console.log(received_message.nlp.entities);
   console.log("-----------");
   console.log("-----------");
   console.log(received_message.nlp.traits);
@@ -147,6 +147,7 @@ let handleMessageWithEntities = (message) => {
 
     entitiesArr.forEach((name) => {
         let entity = firstTrait(message.nlp, name);
+        console.log(entity);
         if (entity && entity.confidence > 0.8) {
             entityChosen = name;
         }
