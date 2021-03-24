@@ -17,7 +17,7 @@ let postWebhook = (req,res) =>{
     // Iterate over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
-        // Gets the body of the webhook event
+        // Gets the body of the webhook event 
         let webhook_event = entry.messaging[0];
         console.log(webhook_event);
 
@@ -147,6 +147,8 @@ let handleMessageWithEntities = (message) => {
     console.log("-----------");
     console.log(entityChosen);
     console.log("-----------");
+    console.log("-----------");
+
 
 
 };
