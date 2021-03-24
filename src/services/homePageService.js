@@ -39,9 +39,11 @@ let SetUpMessengerPlateform = (PAGE_ACCESS_TOKEN) => {
                 ]
 
             };
+            //"https://graph.facebook.com/v7.0/me/nlp_configs?nlp_enabled=$NLP_ENABLED"
+
 
             request({
-                "uri": "https://graph.facebook.com/v6.0/me/messenger_profile",
+                "uri": "https://graph.facebook.com/v6.0/me/messenger_profile/nlp_configs?nlp_enabled=$NLP_ENABLED",
                 "qs": { "access_token": PAGE_ACCESS_TOKEN},
                 "method": "POST",
                 "json": data
