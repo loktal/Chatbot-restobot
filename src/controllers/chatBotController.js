@@ -183,6 +183,8 @@ function handleMessageWithEntities(message) {
     } else {
       console.log("pas valable");
     }
+  } else {
+    return undefined;
   }
 
   /*
