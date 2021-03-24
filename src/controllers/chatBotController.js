@@ -93,7 +93,7 @@ function handleMessage(sender_psid, received_message) {
 
   let entitie = handleMessageWithEntities(received_message);
 
-  if(entities) {
+  if(entitie) {
     if (entitie.role  === 'datetime'){
       console.log(" c'est bon on vas pouvoir se mettre bien en datetime");
   
@@ -184,7 +184,7 @@ function handleMessageWithEntities(message) {
       console.log("pas valable");
     }
   } else {
-    return undefined;
+    return "on a rien trouvé";
   }
 
   /*
