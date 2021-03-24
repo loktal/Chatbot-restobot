@@ -75,7 +75,7 @@ let getWebhook = (req,res) =>{
 function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
-  console.log(received_message.nlp.entities);
+  console.log(received_message.nlp.entities[0]);
   console.log("-----------");
   console.log("-----------");
   console.log(received_message.nlp.traits);
@@ -141,12 +141,12 @@ function handleMessage(sender_psid, received_message) {
 
 
 
-let handleMessageWithEntities = (received_message) => {
+let handleMessageWithEntities = (message) => {
     let entitiesArr = [ "datetime", "phone_number"];
     let entityChosen = "";
 
     entitiesArr.forEach((name) => {
-        let entity = firstTrait(received_message.nlp, name);
+        let entity = firstTrait(message.nlp, name);
         if (entity && entity.confidence > 0.8) {
             entityChosen = name;
         }
@@ -155,7 +155,7 @@ let handleMessageWithEntities = (received_message) => {
     console.log("-----------");
     console.log(entityChosen);
     console.log("-----------");
-    console.log("-----------");
+
 
 
 
@@ -163,7 +163,7 @@ let handleMessageWithEntities = (received_message) => {
 
 
 
-function firstEntity(npl,name) {
+function firstEntity(npl, name) {
     return nlp && nlp.entities && nlp.entities[name] && npl.entities[name][0];
 };
 
