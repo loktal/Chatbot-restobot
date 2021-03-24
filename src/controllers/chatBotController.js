@@ -73,8 +73,13 @@ let getWebhook = (req,res) =>{
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
-    
-    handleMessageWithEntities(received_message);
+  console.log("-----------");
+  console.log("-----------");
+  console.log(message);
+  console.log("-----------");
+  console.log("-----------");
+
+  handleMessageWithEntities(received_message);
 
 
 
