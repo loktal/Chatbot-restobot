@@ -91,7 +91,14 @@ function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
 
-  handleMessageWithEntities(received_message);
+  let entitie = handleMessageWithEntities(received_message);
+
+  if (entitie.role  === 'datetime'){
+    console.log(" c'est bon on vas pouvoir se mettre bien en datetime");
+
+  }else if(entitie.role  === 'phone_number'){
+    console.log(" c'est bon on vas pouvoir se mettre bien en téléphone");
+  }
 
 
 
@@ -160,11 +167,18 @@ function handleMessageWithEntities(message) {
     console.log("on a une datetime");
     if (message.nlp.entities['wit$datetime:datetime'][0].confidence > 0.8){
       console.log("en plus elle est valable");
+      return message.nlp.entities['wit$datetime:datetime'][0]
     } else {
       console.log("pas valable");
     }
-  } else {
-    console.log("pas de datetime");
+  } else if(message.nlp.entities['wit$phone_number:phone_number']) {
+    console.log("on a un numéro de téléphone");
+    if (message.nlp.entities['wit$phone_number:phone_number'][0].confidence > 0.8){
+      console.log("en plus elle est valable");
+      return message.nlp.entities['wit$phone_number:phone_number'][0]
+    } else {
+      console.log("pas valable");
+    }
   }
 
   /*
