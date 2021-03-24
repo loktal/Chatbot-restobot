@@ -79,7 +79,7 @@ function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
 
-  //handleMessageWithEntities(received_message);
+  handleMessageWithEntities(received_message);
 
 
 
@@ -138,12 +138,12 @@ function handleMessage(sender_psid, received_message) {
 
 
 
-let handleMessageWithEntities = (message) => {
+let handleMessageWithEntities = (received_message) => {
     let entitiesArr = [ "datetime", "phone_number"];
     let entityChosen = "";
 
     entitiesArr.forEach((name) => {
-        let entity = firstEntity(message.nlp, name);
+        let entity = firstEntity(received_message.nlp, name);
         if (entity && entity.confidence > 0.8) {
             entityChosen = name;
         }
