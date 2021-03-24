@@ -1,4 +1,5 @@
 require("dotenv").config();
+import { name } from "ejs";
 import request from "request";
 import chatBotService from "../services/chatBotService";
 
@@ -72,7 +73,21 @@ let getWebhook = (req,res) =>{
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
-    let response;
+    
+    handleMessageWithEntities(received_message);
+
+
+
+
+
+
+
+
+
+
+
+
+    /*let response;
 
     // Check if the message contains text
     if (received_message.text) {    
@@ -113,8 +128,38 @@ function handleMessage(sender_psid, received_message) {
     }  
     
     // Sends the response message
-    callSendAPI(sender_psid, response);
+    callSendAPI(sender_psid, response);*/
 }
+
+
+
+let handleMessageWithEntities = (message) =>{
+    let entitiesArr = [ "datetime","phone_number"];
+    let entityChosen = "";
+
+    entitiesArr.forEach((name) => {
+        let entity = firstEntity(message.nlp, name);
+        if ( entity && entity.confidence > 0.8) {
+            entityChosen = name;
+        }
+    });
+
+    console.log("-----------");
+    console.log(entityChosen);
+    console.log("-----------");
+
+
+};
+
+function firstEntity(npl,name) {
+    return nlp && nlp.entities && nlp.entities[name] && npl.entities[name][0];
+};
+
+
+
+
+
+
 
 // Handles messaging_postbacks events
 let handlePostback = async (sender_psid, received_postback) => {
