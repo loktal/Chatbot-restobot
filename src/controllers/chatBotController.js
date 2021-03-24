@@ -143,7 +143,7 @@ let handleMessageWithEntities = (received_message) => {
     let entityChosen = "";
 
     entitiesArr.forEach((name) => {
-        let entity = firstTrait(received_message.nlp, name);
+        let entity = firstEntity(received_message.nlp, name);
         if (entity && entity.confidence > 0.8) {
             entityChosen = name;
         }
@@ -158,10 +158,15 @@ let handleMessageWithEntities = (received_message) => {
 
 };
 
-function firstTrait(nlp, name) {
-  return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
-}
 
+
+function firstEntity(npl,name) {
+    return nlp && nlp.entities && nlp.entities[name] && npl.entities[name][0];
+};
+
+function firstTrait(nlp, name) {
+  return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
+}
 
 
 
