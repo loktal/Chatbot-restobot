@@ -165,7 +165,7 @@ function handleMessage(sender_psid, received_message) {
 function handleMessageWithEntities(message) {
   // check greeting is here and is confident
   
-  if (message.nlp.entities)
+  if (message.nlp)
   {
   if (message.nlp.entities['wit$datetime:datetime']){
     console.log("on a une datetime");
