@@ -75,7 +75,7 @@ let getWebhook = (req,res) =>{
 function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
-  console.log(received_message.nlp.entities.role);
+  console.log(received_message.nlp.entities);
   console.log("-----------");
   console.log("-----------");
   console.log(received_message.nlp.traits);
@@ -139,25 +139,21 @@ function handleMessage(sender_psid, received_message) {
     callSendAPI(sender_psid, response);*/
 }
 
+function firstTrait(nlp, name) {
+  return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
+}
+
+function handleMessage(message) {
+  // check greeting is here and is confident
+  const greeting = firstTrait(message.nlp, 'wit$greetings');
+  if (greeting && greeting.confidence > 0.8) {
+    console.log('Hi there!');
+  } else { 
+    // default logic
+  }
+}
+
 /*
-let handleMessageWithEntities = (message) => {
-  let entitiesArr = [ "datetime", "phone_number"];
-  let entityChosen = "";
-
-  entitiesArr.forEach((name) => {
-      if (message.nlp.entities.role == name)
-  });
-
-  console.log("-----------");
-  console.log(entityChosen);
-  console.log("-----------");
-
-
-
-
-};
-*/
-
 let handleMessageWithEntities = (message) => {
     let entitiesArr = [ "datetime", "phone_number"];
     let entityChosen = "";
@@ -188,7 +184,7 @@ function firstEntity(npl, name) {
 function firstTrait(nlp, name) {
   return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
 }
-
+*/
 
 
 
