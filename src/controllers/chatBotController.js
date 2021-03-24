@@ -75,7 +75,10 @@ let getWebhook = (req,res) =>{
 function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
-  console.log(received_message.nlp);
+  console.log(received_message.nlp.entities);
+  console.log("-----------");
+  console.log("-----------");
+  console.log(received_message.nlp.traits);
   console.log("-----------");
   console.log("-----------");
 
@@ -143,7 +146,7 @@ let handleMessageWithEntities = (received_message) => {
     let entityChosen = "";
 
     entitiesArr.forEach((name) => {
-        let entity = firstEntity(received_message.nlp, name);
+        let entity = firstTrait(received_message.nlp, name);
         if (entity && entity.confidence > 0.8) {
             entityChosen = name;
         }
@@ -165,9 +168,8 @@ function firstEntity(npl,name) {
 };
 
 function firstTrait(nlp, name) {
-  return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
+  return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
 }
-
 
 
 
