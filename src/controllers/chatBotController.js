@@ -133,13 +133,13 @@ function handleMessage(sender_psid, received_message) {
 
 
 
-let handleMessageWithEntities = (message) =>{
-    let entitiesArr = [ "datetime","phone_number"];
+let handleMessageWithEntities = (message) => {
+    let entitiesArr = [ "datetime", "phone_number"];
     let entityChosen = "";
 
     entitiesArr.forEach((name) => {
         let entity = firstEntity(message.nlp, name);
-        if ( entity && entity.confidence > 0.8) {
+        if (entity && entity.confidence > 0.8) {
             entityChosen = name;
         }
     });
