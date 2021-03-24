@@ -139,7 +139,24 @@ function handleMessage(sender_psid, received_message) {
     callSendAPI(sender_psid, response);*/
 }
 
+/*
+let handleMessageWithEntities = (message) => {
+  let entitiesArr = [ "datetime", "phone_number"];
+  let entityChosen = "";
 
+  entitiesArr.forEach((name) => {
+      if (message.nlp.entities.role == name)
+  });
+
+  console.log("-----------");
+  console.log(entityChosen);
+  console.log("-----------");
+
+
+
+
+};
+*/
 
 let handleMessageWithEntities = (message) => {
     let entitiesArr = [ "datetime", "phone_number"];
