@@ -148,20 +148,14 @@ function firstTrait(nlp, name) {
 
 function handleMessageWithEntities(message) {
   // check greeting is here and is confident
-  var x;
-  for ( x in message.nlp.entities){
-    console.log(x);
-  }
-
-  /*
-  const greeting = firstTrait(message.nlp, 'wit$datetime');
+  
+  const greeting = firstTrait(message.nlp, 'wit$datetime:datetime');
   if (greeting && greeting.confidence > 0.8) {
-    console.log('greeting.value');
+    console.log('this is a datetime');
     
   } else { 
     // default logic
   }
-  */
 }
 
 /*
