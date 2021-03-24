@@ -75,7 +75,7 @@ let getWebhook = (req,res) =>{
 function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");
-  console.log(received_message.nlp.entities);
+  console.log(received_message.nlp.entities["wit$datetime:datetime"]);
   console.log("-----------");
   console.log("-----------");
   console.log(received_message.nlp.traits);
@@ -148,7 +148,6 @@ function handleMessageWithEntities(message) {
   var x;
   for ( x in message.nlp.entities){
     console.log(x);
-    console.log(x.role);
   }
 
   /*
