@@ -93,12 +93,16 @@ function handleMessage(sender_psid, received_message) {
 
   let entitie = handleMessageWithEntities(received_message);
 
-  if (entitie.role  === 'datetime'){
-    console.log(" c'est bon on vas pouvoir se mettre bien en datetime");
+  if(entities) {
+    if (entitie.role  === 'datetime'){
+      console.log(" c'est bon on vas pouvoir se mettre bien en datetime");
+  
+    }else if(entitie.role  === 'phone_number'){
+      console.log(" c'est bon on vas pouvoir se mettre bien en téléphone");
+    }
 
-  }else if(entitie.role  === 'phone_number'){
-    console.log(" c'est bon on vas pouvoir se mettre bien en téléphone");
   }
+  
 
 
 
