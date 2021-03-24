@@ -156,7 +156,7 @@ function handleMessageWithEntities(message) {
   // check greeting is here and is confident
   
 
-  if (message.nlp.entities['wit$datetime:datetime'] !== 'undefined' ){
+  if (message.nlp.entities['wit$datetime:datetime']){
     console.log("on a une datetime");
     if (message.nlp.entities['wit$datetime:datetime'][0].confidence > 0.8){
       console.log("en plus elle est valable");
