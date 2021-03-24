@@ -138,11 +138,6 @@ let handleMessageWithEntities = (message) => {
     let entityChosen = "";
 
     entitiesArr.forEach((name) => {
-        console.log("-----------");
-        console.log(name);
-        console.log(message);
-        console.log(message).nlp;
-        console.log("-----------");
         let entity = firstEntity(message.nlp, name);
         if (entity && entity.confidence > 0.8) {
             entityChosen = name;
