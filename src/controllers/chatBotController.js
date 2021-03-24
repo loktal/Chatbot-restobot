@@ -148,6 +148,7 @@ function handleMessageWithEntities(message) {
   var x;
   for ( x in message.nlp.entities){
     console.log(x);
+    console.log(x.role);
   }
 
   /*
