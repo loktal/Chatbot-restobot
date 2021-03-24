@@ -152,13 +152,26 @@ function firstTrait(nlp, name) {
 function handleMessageWithEntities(message) {
   // check greeting is here and is confident
   
+
+  if (message.nlp.entities['wit$datetime:datetime'] !== 'undefined' ){
+    console.log("on a une datetime");
+    if (received_message.nlp.entities['wit$datetime:datetime'][0].confidence > 0.8){
+      console.log("en plus elle est valable");
+    } else {
+      console.log("pas valable");
+    }
+  } else {
+    console.log("pas de datetime");
+  }
+
+  /*
   const greeting = firstTrait(message.nlp, 'wit$datetime:datetime');
   if (greeting && greeting.confidence > 0.8) {
     console.log('this is a datetime');
     
   } else { 
     // default logic
-  }
+  }*/
 }
 
 /*
