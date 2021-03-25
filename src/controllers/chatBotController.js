@@ -98,7 +98,8 @@ function handleMessage(sender_psid, received_message) {
 
   const regex = new RegExp('^[0-9]*$');
 
-  const found
+  const found;
+  
   if(received_message.text){
     const found = received_message.text.match(regex);
   }
