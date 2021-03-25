@@ -405,18 +405,18 @@ let sendDessert = (sender_psid) => {
                 "elements": [
                     {
                         "title": "Strawberry cake",
-                        "subtitle": "With roasted potatoes and green beans.",
+                       
                         "image_url": "https://i8b2m3d9.stackpathcdn.com/wp-content/uploads/2020/08/Strawberry_Shortcake_5140sq-500x500.jpg",
                     },
                     {
                         "title": "Chocolate fudge",
-                        "subtitle": "With cucumber, carrots and peanuts",
+                        
                         "image_url": "https://i-reg.unimedias.fr/sites/art-de-vivre/files/styles/recipe/public/Import/coulant-fondant-chocolat_ss.jpg?auto=compress%2Cformat&crop=faces%2Cedges&cs=srgb&fit=crop&h=500&w=393",
                         
                     },
                     {
                         "title": "Banana split",
-                        "subtitle": "Cambodian beef salad served with a wok of vegetables, gomasio and pandan rice.",
+                        
                         "image_url": "https://www.thekitchenmagpie.com/wp-content/uploads/images/2020/08/oldfashionedbananasplits.jpg",
                         
                     },

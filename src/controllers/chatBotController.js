@@ -169,15 +169,16 @@ function handleMessageWithEntities(message) {
   {
   if (message.nlp.entities['wit$datetime:datetime']){
     console.log("on a une datetime");
-    if (message.nlp.entities['wit$datetime:datetime'][0].confidence > 0.8){
+    if (message.nlp.entities['wit$datetime:datetime'][0].confidence > 0.9){
       console.log("en plus elle est valable");
+      console.log(message.nlp.entities['wit$datetime:datetime'][0].confidence);
       return message.nlp.entities['wit$datetime:datetime'][0]
     } else {
       console.log("pas valable");
     }
   } else if(message.nlp.entities['wit$phone_number:phone_number']) {
     console.log("on a un numéro de téléphone");
-    if (message.nlp.entities['wit$phone_number:phone_number'][0].confidence > 0.8){
+    if (message.nlp.entities['wit$phone_number:phone_number'][0].confidence > 0.9){
       console.log("en plus elle est valable");
       return message.nlp.entities['wit$phone_number:phone_number'][0]
     } else {
