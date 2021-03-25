@@ -96,18 +96,18 @@ function handleMessage(sender_psid, received_message) {
 
   let entitie = handleMessageWithEntities(received_message);
 
-  const regex = new RegExp('^[0-9]*$');
 
-  const found;
-  
+
   if(received_message.text){
+    const regex = new RegExp('^[0-9]*$');
     const found = received_message.text.match(regex);
+    if (found){
+      Console.log(`we have found ${found[0]} people`);
+    }
   }
   
-
-  if (found){
-      Console.log(`we have found ${found[0]} people`);
-  } else if(entitie) {
+  
+  if(entitie) {
     if (entitie.role  === 'datetime'){
       //console.log(" c'est bon on vas pouvoir se mettre bien en datetime");
       //datereservation = 
