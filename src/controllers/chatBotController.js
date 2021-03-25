@@ -108,7 +108,7 @@ function handleMessage(sender_psid, received_message) {
     const regex2 = /(menu)/igm;
     const found2 = received_message.text.match(regex2);
     if (found2){
-      response = {
+      let response = {
         "text":`Here we go ! Take a look at our best dishies!`
       }
       callSendAPI(sender_psid, response);
