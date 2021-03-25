@@ -102,7 +102,7 @@ function handleMessage(sender_psid, received_message) {
     const regex = new RegExp('^[0-9]*$');
     const found = received_message.text.match(regex);
     if (found){
-      Console.log(`we have found ${found[0]} people`);
+      console.log(`we have found ${found[0]} people`);
     }
   }
   
