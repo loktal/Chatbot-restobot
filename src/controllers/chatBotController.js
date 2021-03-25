@@ -2,6 +2,7 @@ require("dotenv").config();
 import { name } from "ejs";
 import request from "request";
 import chatBotService from "../services/chatBotService";
+const XRegExp = require ('xregexp') ;
 
 const MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN; 
 
@@ -71,6 +72,8 @@ let getWebhook = (req,res) =>{
   }
 };
 
+let datereservation = "";
+
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   /*console.log("-----------");
@@ -93,10 +96,14 @@ function handleMessage(sender_psid, received_message) {
 
   let entitie = handleMessageWithEntities(received_message);
 
-  if(entitie) {
+  const regex = new RegExp('^[0-9]*$');
+  const found = received_message.match(regex);
+  if (typeof found !== 'undefined' && found.length > 0){
+      Console.log(`we have found ${found[0]} people`);
+  } else if(entitie) {
     if (entitie.role  === 'datetime'){
       //console.log(" c'est bon on vas pouvoir se mettre bien en datetime");
-
+      //datereservation = 
       chatBotService.SendMessageAskingQuantity(sender_psid);
   
     }else if(entitie.role  === 'phone_number'){
