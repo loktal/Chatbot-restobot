@@ -2,7 +2,7 @@ require("dotenv").config();
 import { name } from "ejs";
 import request from "request";
 import chatBotService from "../services/chatBotService";
-const XRegExp = require ('xregexp') ;
+//const XRegExp = require ('xregexp') ;
 
 const MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN; 
 
