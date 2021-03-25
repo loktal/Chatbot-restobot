@@ -521,18 +521,18 @@ let SendMessageAskingQuantity = (sender_psid) => {
             "quick_replies":[
               {
                 "content_type":"text",
-                "title":"1-2",
+                "title":"1 or 2",
                 "payload":"SMALL",
                 
               },{
                 "content_type":"text",
-                "title":"2-5",
+                "title":"2 or 5",
                 "payload":"MEDIUM",
                 
               },
               {
                 "content_type":"text",
-                "title":">5",
+                "title":"> 5",
                 "payload":"LARGE",
                 
               }
