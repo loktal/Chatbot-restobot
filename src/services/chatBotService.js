@@ -474,7 +474,7 @@ let handleReserveTable = (sender_psid) => {
     return new Promise( async (resolve, reject) => {
         try {
             let username = await getFacebookUsername(sender_psid);
-            let response = {text: `Great! Thank you for reserving a table ${username}. When do you want to bring ecstasy to your taste buds ?`};
+            let response = {text: `Great! Thank you ${username}. When do you want to bring ecstasy to your taste buds ?`};
             await sendMessage(sender_psid, response);
         }catch(e){
             reject(e);

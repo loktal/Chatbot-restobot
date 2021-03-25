@@ -112,9 +112,20 @@ function handleMessage(sender_psid, received_message) {
         "text":`Here we go ! Take a look at our best dishies!`
       }
       callSendAPI(sender_psid, response);
-
       chatBotService.sendMainMenu(sender_psid);
     }
+
+    const regex3 = /(reserve)/igm;
+    const found3 = received_message.text.match(regex3);
+    if (found3){
+      let response = {
+        "text":`Here we go ! We you are making the right choice!`
+      }
+      callSendAPI(sender_psid, response);
+      chatBotService.handleReserveTable(sender_psid);
+    }
+
+
   }
   
   
