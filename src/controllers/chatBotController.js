@@ -98,7 +98,7 @@ function handleMessage(sender_psid, received_message) {
 
   const regex = new RegExp('^[0-9]*$');
   const found = received_message.text.match(regex);
-  if (typeof found !== 'undefined' && found.length > 0){
+  if (found){
       Console.log(`we have found ${found[0]} people`);
   } else if(entitie) {
     if (entitie.role  === 'datetime'){
