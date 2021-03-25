@@ -104,6 +104,11 @@ function handleMessage(sender_psid, received_message) {
     if (found){
       console.log(`we have found ${found[0]} people`);
     }
+    const regex2 = new RegExp('/(menu|menus)/i');
+    const found2 = received_message.text.match(regex2);
+    if (found2){
+      chatBotService.sendMainMenu(sender_psid);
+    }
   }
   
   
