@@ -73,6 +73,8 @@ let getWebhook = (req,res) =>{
 };
 
 let datereservation = "";
+let nombrepersonne = "";
+let tablesize = "";
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
@@ -94,6 +96,27 @@ function handleMessage(sender_psid, received_message) {
   console.log("-----------");
   console.log("-----------");*/
 
+
+  // handle quick reply.
+  if(received_message && received_message.quick_reply && message.quick_reply.payload){
+    if (received_message.quick_reply.payload === "SMALL"){
+      tablesize = "small";
+      chatBotService.SendMessageAskingPhoneNumber(sender_psid);
+    } else if (received_message.quick_reply.payload === "MEDIUM"){
+      tablesize = "medium";
+      chatBotService.SendMessageAskingPhoneNumber(sender_psid);
+    }else if (received_message.quick_reply.payload === "LARGE"){
+      tablesize = "large";
+      chatBotService.SendMessageAskingPhoneNumber(sender_psid);
+    }
+    
+    return;
+  }
+
+
+
+
+  // handle text message 
   let entitie = handleMessageWithEntities(received_message);
 
 
