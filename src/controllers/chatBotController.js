@@ -134,11 +134,14 @@ function handleMessage(sender_psid, received_message) {
     const found = received_message.text.match(regex);
     if (found){
       if (parseInt(found[0], 10) <= 2){
-        tablesize="small"
+        tablesize="small";
+        chatBotService.SendMessageAskingPhoneNumber(sender_psid);
       }else if(parseInt(found[0], 10) <= 5){
-        tablesize="medium"
+        tablesize="medium";
+        chatBotService.SendMessageAskingPhoneNumber(sender_psid);
       }else{
-        tablesize="large"
+        tablesize="large";
+        chatBotService.SendMessageAskingPhoneNumber(sender_psid);
       }
     }
 
