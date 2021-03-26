@@ -73,8 +73,8 @@ let getWebhook = (req,res) =>{
 };
 
 let datereservation = "";
-let nombrepersonne = "";
 let tablesize = "";
+let phone_number = "";
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
@@ -102,14 +102,22 @@ function handleMessage(sender_psid, received_message) {
     if (received_message.quick_reply.payload === "SMALL"){
       tablesize = "small";
       chatBotService.SendMessageAskingPhoneNumber(sender_psid);
+      return;
     } else if (received_message.quick_reply.payload === "MEDIUM"){
       tablesize = "medium";
       chatBotService.SendMessageAskingPhoneNumber(sender_psid);
+      return;
     }else if (received_message.quick_reply.payload === "LARGE"){
       tablesize = "large";
       chatBotService.SendMessageAskingPhoneNumber(sender_psid);
+      return;
     }
-    
+
+    if(received_message.quick_reply.payload !== " "){
+      phone_number = received_message.quick_reply.payload;
+      chatBotService.SendMessageDoneReserveTable(sender_psid,datereservation,phone_number,tablesize);
+    }
+
     return;
   }
 
@@ -125,7 +133,13 @@ function handleMessage(sender_psid, received_message) {
     const regex = new RegExp('^[0-9]*$');
     const found = received_message.text.match(regex);
     if (found){
-      console.log(`we have found ${found[0]} people`);
+      if (found[0] <= 2){
+        tablesize="small"
+      }else if(found[0] <= 5){
+        tablesize="medium"
+      }else{
+        tablesize="large"
+      }
     }
 
     const regex2 = /(menu)/igm;
@@ -155,11 +169,14 @@ function handleMessage(sender_psid, received_message) {
   if(entitie) {
     if (entitie.role  === 'datetime'){
       //console.log(" c'est bon on vas pouvoir se mettre bien en datetime");
-      //datereservation = 
+      datereservation = entitie.body;
       chatBotService.SendMessageAskingQuantity(sender_psid);
   
     }else if(entitie.role  === 'phone_number'){
       //console.log(" c'est bon on vas pouvoir se mettre bien en téléphone");
+      phone_number = entitie.value;
+      chatBotService.SendMessageDoneReserveTable(sender_psid,datereservation,phone_number,tablesize);
+      
     }
 
   }

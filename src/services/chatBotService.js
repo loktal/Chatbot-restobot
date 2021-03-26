@@ -590,6 +590,28 @@ let SendMessageAskingPhoneNumber = (sender_psid) => {
 };
 
 
+let SendMessageDoneReserveTable = async (sender_psid,datereservation,phone_number,tablesize) =>{
+
+    let response1 = {
+        "attachment":{
+            "type":"image",
+            "payload":{
+                "url": "http://gph.is/1a7RlDR"
+            }
+        }
+    };
+    await sendMessage(sender_psid, response1);
+
+    let response2 = { "text": `Thank you! We have registered your reservation for a ${tablesize} table for ${datereservation} with the phone number: ${phone_number}` };
+
+    await sendMessage(sender_psid, response2);
+};
+
+
+
+
+
+
 module.exports = {
     getFacebookUsername: getFacebookUsername,
     sendResponseWelcomeNewCustomer: sendResponseWelcomeNewCustomer,
