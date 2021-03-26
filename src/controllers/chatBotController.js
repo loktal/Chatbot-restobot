@@ -130,7 +130,7 @@ function handleMessage(sender_psid, received_message) {
 
 
   if(received_message.text){
-    const regex = new RegExp('^[0-9]*$');
+    const regex = new RegExp('^[1-9][0-9]?$|^100$');
     const found = received_message.text.match(regex);
     if (found){
       if (parseInt(found[0], 10) <= 2){
