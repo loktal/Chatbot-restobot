@@ -98,7 +98,7 @@ function handleMessage(sender_psid, received_message) {
 
 
   // handle quick reply.
-  if(received_message && received_message.quick_reply && message.quick_reply.payload){
+  if(received_message && received_message.quick_reply && received_message.quick_reply.payload){
     if (received_message.quick_reply.payload === "SMALL"){
       tablesize = "small";
       chatBotService.SendMessageAskingPhoneNumber(sender_psid);
