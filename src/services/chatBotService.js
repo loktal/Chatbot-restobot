@@ -624,5 +624,6 @@ module.exports = {
     handleReserveTable: handleReserveTable,
     SendMessageAskingQuantity: SendMessageAskingQuantity,
     SendMessageAskingPhoneNumber: SendMessageAskingPhoneNumber,
+    SendMessageDoneReserveTable: SendMessageDoneReserveTable,
 
 };
