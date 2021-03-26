@@ -133,9 +133,9 @@ function handleMessage(sender_psid, received_message) {
     const regex = new RegExp('^[0-9]*$');
     const found = received_message.text.match(regex);
     if (found){
-      if (found[0] <= 2){
+      if (parseInt(found[0], 10) <= 2){
         tablesize="small"
-      }else if(found[0] <= 5){
+      }else if(parseInt(found[0], 10) <= 5){
         tablesize="medium"
       }else{
         tablesize="large"
