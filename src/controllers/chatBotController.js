@@ -72,9 +72,9 @@ let getWebhook = (req,res) =>{
   }
 };
 
-let datereservation = "";
-let tablesize = "";
-let phone_number = "";
+let datereservation ;
+let tablesize ;
+let phone_number ;
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
