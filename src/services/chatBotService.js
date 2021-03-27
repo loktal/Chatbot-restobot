@@ -540,7 +540,7 @@ let SendMessageAskingQuantity = (sender_psid) => {
           }
     };
     
-    // Send the HTTP request to the Messenger Platform
+    // Send the HTTP request to the Messenger Platform noice
     request({
         "uri": "https://graph.facebook.com/v6.0/me/messages",
         "qs": { "access_token": PAGE_ACCESS_TOKEN},

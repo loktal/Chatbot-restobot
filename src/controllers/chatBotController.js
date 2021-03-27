@@ -122,9 +122,9 @@ function handleMessage(sender_psid, received_message) {
   }
 
 
+  
 
-
-  // handle text message 
+  // handle text message with style
   let entitie = handleMessageWithEntities(received_message);
 
 
